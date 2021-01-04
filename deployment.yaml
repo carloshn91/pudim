@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pudim
+spec:
+  replicas: 1
+  revisionHistoryLimit: 3
+  selector:
+    matchLabels:
+      app: pudim
+  template:
+    metadata:
+      labels:
+        app: pudim
+    spec:
+      containers:
+      - image: carloshn91/pudim:v0
+        name: pudim
+        ports:
+        - containerPort: 80
